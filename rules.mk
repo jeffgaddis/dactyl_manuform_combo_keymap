@@ -1,0 +1,9 @@
+CAPS_WORD_ENABLE = yes
+LTO_ENABLE = yes
+DYNAMIC_MACRO_ENABLE = yes
+NKRO_ENABLE = no
+UNICODEMAP_ENABLE = no
+
+VPATH  +=  keyboards/gboards/
+COMBO_ENABLE=yes
+
