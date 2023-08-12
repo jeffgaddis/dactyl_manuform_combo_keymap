@@ -1,6 +1,8 @@
 # Jeff Gaddis's 5x6 Dactyl Manuform Keymap
 To be inserted in ~/qmk_firmware/keyboards/handwired/dactyl_manuform/5x6/keymaps/jg-combos
 
+The full combo list is saved here and you can add more to use like a steno keyboard if you compile for a RP2040 with enough space: https://github.com/jeffgaddis/QMK_Combo_Generator
+
 ## Keymap Features
 This Dactyl Manuform keymap uses Colemack-DH and emphasizes single key press actions instead of holding down keys. A QWERTY layer is also available (good for sharing the keyboard with other people).
 
