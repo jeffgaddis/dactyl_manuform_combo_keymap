@@ -17,10 +17,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define MASTER_LEFT
-//#define MASTER_RIGHT
+// #define LAYER_STATE_8BIT
 
-//#define EE_HANDS
+// #define USE_SERIAL
+#define MASTER_LEFT
+
+// #define SPLIT_USB_DETECT
+
+// #define EE_HANDS
+
+#define TAPPING_TOGGLE 2
+#define ONESHOT_TAP_TOGGLE 2
 
 #define BOTH_SHIFTS_TURNS_ON_CAPS_WORD
 #define COMBO_VARIABLE_LEN

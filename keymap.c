@@ -21,8 +21,6 @@ enum custom_keycodes {
   NAV,
   NUM,
   ADJUST,
-  //Remove OS Mods if they are stuck
-  OS_CLR,
   KC_P000,
   KC_C000,
   O_BRACE,
@@ -109,9 +107,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                        DM_REC1 ,DM_REC2 ,                                                                                KC_0    ,KC_DOT  ,
   //                  └────────┴────────┘                                                                               └────────┴────────┘
   //                                    ┌────────┬────────┐                                           ┌────────┬────────┐
-                                         _______ ,_______ ,                                            _______ ,_______ ,
+                                         _______ ,_______ ,                                            KC_SPC  ,_______ ,
   //                                    ├────────┼────────┤                                           ├────────┼────────┤
-                                       C(KC_BSPC),_______ ,                                            _______ ,KC_CALC,
+                                       C(KC_BSPC),_______ ,                                            _______ ,KC_0    ,
   //                                    ├────────┼────────┤                                           ├────────┼────────┤
                                          _______ ,_______ ,                                            _______ ,_______
   //                                    └────────┴────────┘                                           └────────┴────────┘
@@ -119,18 +117,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
   [_NAV] = LAYOUT_5x6(
   //┌────────┬────────┬────────┬────────┬────────┬────────┐                                           ┌────────┬────────┬────────┬────────┬────────┬────────┐
-     ADJUST  ,_______ ,_______ ,_______ ,_______ ,_______ ,                                            _______ ,_______ ,_______ ,_______ ,_______ ,KC_QWER ,
+     ADJUST  ,KC_LBRC ,KC_RBRC ,KC_LPRN ,KC_RPRN ,C_A_DEL ,                                            _______ ,KC_MPRV ,KC_MPLY ,KC_MSTP ,KC_MNXT ,KC_QWER ,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                                           ├────────┼────────┼────────┼────────┼────────┼────────┤
-     _______ ,KC_LBRC ,KC_RBRC ,KC_UP   ,KC_APP  ,C_A_DEL ,                                            O_BRACE ,KC_RPRN ,KC_LPRN ,KC_RBRC ,KC_LBRC ,KC_PSCR ,
+     _______ ,KC_LCBR ,KC_RCBR ,KC_UP   ,KC_APP  ,KC_HASH ,                                            O_BRACE ,KC_LPRN ,KC_RPRN ,KC_LBRC ,KC_RBRC ,KC_PSCR ,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                                           ├────────┼────────┼────────┼────────┼────────┼────────┤
-     KC_PGUP ,_______ ,KC_LEFT ,KC_DOWN ,KC_RIGHT,_______ ,                                            C_BRACE ,KC_RCTL ,KC_RSFT ,KC_RALT ,KC_RGUI ,_______ ,
+     KC_PGUP ,_______ ,KC_LEFT ,KC_DOWN ,KC_RIGHT,KC_AMPR ,                                            C_BRACE ,KC_RCTL ,KC_RSFT ,KC_RALT ,KC_RGUI ,_______ ,
   //├────────┼────────┼────────┼────────┼────────┼────────┤                                           ├────────┼────────┼────────┼────────┼────────┼────────┤
      KC_PGDN ,C(KC_A) ,C(KC_X) ,C(KC_C) ,C(KC_V),LCA(KC_V),                                            KC_CIRC ,KC_AMPR ,KC_HASH ,KC_AT   ,KC_EXLM ,_______ ,
   //└────────┴────────┼────────┼────────┼────────┴────────┘                                           └────────┴────────┼────────┼────────┼────────┴────────┘
                     RCS(KC_TAB),C(KC_TAB),                                                                               _______ ,_______ ,
   //                  └────────┴────────┘                                                                               └────────┴────────┘
   //                                    ┌────────┬────────┐                                           ┌────────┬────────┐
-                                         _______ ,_______ ,                                            _______ ,_______ ,
+                                         _______ ,KC_BSPC ,                                            _______ ,_______ ,
   //                                    ├────────┼────────┤                                           ├────────┼────────┤
                                        C(KC_BSPC),_______ ,                                            _______ ,_______ ,
   //                                    ├────────┼────────┤                                           ├────────┼────────┤
@@ -192,12 +190,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             return false;
         }
         return true;
-
-     case OS_CLR:
-         if (record->event.pressed) {
-             clear_oneshot_layer_state(ONESHOT_OTHER_KEY_PRESSED);
-         }
-         return false;
 
     case KC_P000:
       if (record->event.pressed) {
